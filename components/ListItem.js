@@ -10,14 +10,13 @@ export default function ListItem({ item }) {
 
 const styles = StyleSheet.create({
     text: {
-        padding: 20,
+        padding: 10,
         textAlign: 'center',
         backgroundColor: '#A9A9A9',
         borderWidth: 1,
         borderColor: 'black',
-        borderRadius: 10,
+        // borderRadius: 10,
         marginTop: 10,
-        width: '50%',
-        marginLeft: '20%'
+        marginHorizontal: '20%'
     }
 });
