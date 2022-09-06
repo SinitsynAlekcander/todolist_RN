@@ -4,7 +4,6 @@ export default function Header() {
     return (
         <View style={styles.header}>
             <Text style={styles.text}>Список дел</Text>
-
         </View>
     );
 }
