@@ -10,17 +10,22 @@ import ListItem from './components/ListItem';
 export default function App() {
 
   const [listOfItems, setListOfItems] = useState([
-    { text: 'Купить продукты', id: 1 },
-    { text: 'Изучение React Native', id: 2 },
-    { text: 'Изучение Англ.языка', id: 3 }])
+    { text: 'Купить продукты', key: '1' },
+    { text: 'Изучение React Native', key: '2' },
+    { text: 'Изучение Англ.языка', key: '3' }])
 
   const addItem = (text) => {
     setListOfItems((list) => {
       return [
-        { text: text, id: 5 },
+        { text: text, key: Math.random().toString(36).substring(7) },
         ...list
       ]
-    })
+    });
+  };
+  const deleteItem = (key) => {
+    setListOfItems((list) => {
+      return list.filter(listOfItems => listOfItems.key != key)
+    });
   };
 
   return (
@@ -31,7 +36,7 @@ export default function App() {
         <FlatList
           data={listOfItems}
           renderItem={({ item }) => (
-            <ListItem item={item} />
+            <ListItem item={item} deleteItem={deleteItem}/>
           )}
         />
       </View>

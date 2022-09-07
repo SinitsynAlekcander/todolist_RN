@@ -1,10 +1,10 @@
-import { StyleSheet, TouchableHighlight, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
-export default function ListItem({ item }) {
+export default function ListItem({ item, deleteItem }) {
     return (
-        <TouchableHighlight>
+        <TouchableOpacity onPress={() => deleteItem(item.key)}>
             <Text style={styles.text}>{item.text}</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
     );
 }
 
