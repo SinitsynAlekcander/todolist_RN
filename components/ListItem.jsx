@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         flex: 1,
-        // textAlign: 'center'
+        paddingVertical: 5
     },
     image: {
         width: 24,

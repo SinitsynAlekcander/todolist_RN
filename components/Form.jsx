@@ -4,11 +4,16 @@ import { StyleSheet, TextInput, Text, Button, View, Pressable } from 'react-nati
 
 export default function Form({ addItem }) {
     const [text, setValue] = useState('');
-    // const inputEl = useRef(null)
+    const inputEl = useRef(null)
 
     const onChange = (text) => {
         setValue(text);
     };
+
+    const handlerButton = () => {
+        addItem(text)
+        inputEl.current.clear();
+    }
 
 
     return (
@@ -17,38 +22,42 @@ export default function Form({ addItem }) {
                 style={styles.input}
                 onChangeText={onChange}
                 placeholder='Enter the task'
+                ref={inputEl}
             />
-            <Pressable style={styles.button} onPress={() => addItem(text)}>
-                <Text style={styles.text}>
-                    ADD
-                </Text>
-            </Pressable>
+            <View style={styles.button}>
+                <Button
+                    title='ADD'
+                    color="#FFFFFF"
+                    onPress={handlerButton}
+                />
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     wrapper: {
-        alignItems: 'center'
+        fontSize: 5,
+        alignItems: 'center',
+        marginHorizontal: '20%'
     },
     input: {
+        width: '100%',
         color: '#FFFFFF',
         borderBottomWidth: 1,
         borderColor: '#FFFF00',
         padding: 10,
         marginVertical: 10,
-        marginHorizontal: '20%',
         alignItems: 'left'
     },
     button: {
+        width: '50%',
         backgroundColor: '#2F4F4F',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
+        paddingHorizontal: 20,
+        paddingVertical: 2,
         borderWidth: 1,
         borderColor: '#FFFF00',
-        borderRadius: 10
-    },
-    text: {
-        color: '#FFFFFF'
+        borderRadius: 10,
+        marginBottom: 20
     }
 });
