@@ -10,7 +10,7 @@ import ListItem from './components/ListItem';
 export default function App() {
 
   const [listOfItems, setListOfItems] = useState([
-    { text: 'Купить продукты', key: '1' },
+    { text: 'Купить продукты1', key: '1' },
     { text: 'Изучение React Native', key: '2' },
     { text: 'Изучение Англ.языка', key: '3' }])
 
@@ -29,14 +29,14 @@ export default function App() {
   };
 
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Header />
       <Form addItem={addItem} />
       <View>
         <FlatList
           data={listOfItems}
           renderItem={({ item }) => (
-            <ListItem item={item} deleteItem={deleteItem}/>
+            <ListItem item={item} deleteItem={deleteItem} />
           )}
         />
       </View>
@@ -45,5 +45,8 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-
+  wrapper: {
+    backgroundColor: '#000000',
+    flex: 1
+  }
 });

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, Text, Button, View } from 'react-native';
+import { StyleSheet, TextInput, Text, Button, View, Pressable } from 'react-native';
 
 
-export default function Form({addItem}) {
+export default function Form({ addItem }) {
     const [text, setValue] = useState('');
 
     const onChange = (text) => {
@@ -10,27 +10,43 @@ export default function Form({addItem}) {
     };
 
     return (
-        <View>
+        <View style={styles.wrapper}>
             <TextInput
                 style={styles.input}
                 onChangeText={onChange}
-                placeholder='Напишите задачу'
+                placeholder='Enter the task'
             />
-            <Button
-                color='red'
-                onPress={() => addItem(text)}
-                title='Добавить задачу'
-            />
+            <Pressable style={styles.button} onPress={() => addItem(text)}>
+                <Text style={styles.text}>
+                    ADD
+                </Text>
+            </Pressable>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    wrapper: {
+        alignItems: 'center'
+    },
     input: {
+        color: '#FFFFFF',
         borderBottomWidth: 1,
-        borderColor: 'green',
+        borderColor: '#FFFF00',
         padding: 10,
         marginVertical: 10,
         marginHorizontal: '20%',
+        alignItems: 'left'
+    },
+    button: {
+        backgroundColor: '#2F4F4F',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderWidth: 1,
+        borderColor: '#FFFF00',
+        borderRadius: 10
+    },
+    text: {
+        color: '#FFFFFF'
     }
 });
