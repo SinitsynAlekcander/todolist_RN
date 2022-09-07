@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { StyleSheet, TextInput, Text, Button, View, Pressable } from 'react-native';
 
 
 export default function Form({ addItem }) {
     const [text, setValue] = useState('');
+    // const inputEl = useRef(null)
 
     const onChange = (text) => {
         setValue(text);
     };
+
 
     return (
         <View style={styles.wrapper}>

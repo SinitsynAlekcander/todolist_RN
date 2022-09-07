@@ -5,12 +5,10 @@ import Form from './components/Form';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 
-
-
 export default function App() {
 
   const [listOfItems, setListOfItems] = useState([
-    { text: 'Купить продукты1', key: '1' },
+    { text: 'Купить продукты', key: '1' },
     { text: 'Изучение React Native', key: '2' },
     { text: 'Изучение Англ.языка', key: '3' }])
 
@@ -22,11 +20,13 @@ export default function App() {
       ]
     });
   };
+  
   const deleteItem = (key) => {
     setListOfItems((list) => {
       return list.filter(listOfItems => listOfItems.key != key)
     });
   };
+
 
   return (
     <View style={styles.wrapper}>
