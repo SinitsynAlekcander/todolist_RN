@@ -12,15 +12,19 @@ export default function ListItem({ item, deleteItem }) {
             </View >
 
             <View style={styles.text}>
-                <Text>
-                    {item.text}
-                </Text>
-                <TouchableOpacity onPress={() => deleteItem(item.key)}>
-                    <Image
-                        style={styles.Image}
-                        source={require('../assets/deleteImage.png')}
-                    />
-                </TouchableOpacity>
+                <View style={styles.qwerty1}>
+                    <Text>
+                        {item.text}
+                    </Text>
+                </View>
+                <View style={styles.qwerty1}>
+                    <TouchableOpacity onPress={() => deleteItem(item.key)}>
+                        <Image
+                            style={styles.Image}
+                            source={require('../assets/deleteImage.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <View style={styles.doneImage}>
@@ -43,28 +47,35 @@ const styles = StyleSheet.create({
         // borderRadius: 10,
         // padding: 10, 
         marginTop: 10,
+        height: 70,
         // marginHorizontal: '20%'
     },
     changeImage: {
         flex: 1,
         backgroundColor: 'green',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     text: {
         flex: 3,
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         // color: 'white',
-        paddingVertical: 5,
-        width: 24,
-        height: 24
+        //paddingVertical: 5,
     },
     doneImage: {
         flex: 1,
         backgroundColor: '#DCDCDC',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     Image: {
+        // flex: 1,
         width: 24,
         height: 24,
     },
+    1: {
+
+    }
 });
