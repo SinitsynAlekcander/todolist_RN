@@ -2,37 +2,69 @@ import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 
 export default function ListItem({ item, deleteItem }) {
     return (
-        <View style={styles.wrapper}>
-            <Text style={styles.text}>
-                {item.text}
-            </Text>
-            <TouchableOpacity onPress={() => deleteItem(item.key)}>
+        <View style={styles.wrapp}>
+
+            <View style={styles.changeImage}>
                 <Image
-                    style={styles.image}
+                    style={styles.Image}
                     source={require('../assets/deleteImage.png')}
                 />
-            </TouchableOpacity>
-        </View >
+            </View >
+
+            <View style={styles.text}>
+                <Text>
+                    {item.text}
+                </Text>
+                <TouchableOpacity onPress={() => deleteItem(item.key)}>
+                    <Image
+                        style={styles.Image}
+                        source={require('../assets/deleteImage.png')}
+                    />
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.doneImage}>
+                <Image
+                    style={styles.Image}
+                    source={require('../assets/deleteImage.png')}
+                />
+            </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
+    wrapp: {
+        flex: 1,
         flexDirection: 'row',
-        borderColor: '#FFFF00',
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 10,
+        backgroundColor: 'red',
+        // borderColor: '#FFFF00',
+        // borderWidth: 1,
+        // borderRadius: 10,
+        // padding: 10, 
         marginTop: 10,
-        marginHorizontal: '20%'
+        // marginHorizontal: '20%'
+    },
+    changeImage: {
+        flex: 1,
+        backgroundColor: 'green',
+        alignItems: 'center'
     },
     text: {
-        color: 'white',
-        flex: 1,
-        paddingVertical: 5
-    },
-    image: {
+        flex: 3,
+        flexDirection: 'row',
+        // color: 'white',
+        paddingVertical: 5,
         width: 24,
         height: 24
-    }
+    },
+    doneImage: {
+        flex: 1,
+        backgroundColor: '#DCDCDC',
+        alignItems: 'center'
+    },
+    Image: {
+        width: 24,
+        height: 24,
+    },
 });
