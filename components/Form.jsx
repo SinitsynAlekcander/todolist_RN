@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, Text, Button, View, Pressable } from 'react-nati
 
 export default function Form({ addItem }) {
     const [text, setValue] = useState('');
-    const inputEl = useRef(null)
+    const inputItem = useRef(null);
 
     const onChange = (text) => {
         setValue(text);
@@ -12,18 +12,20 @@ export default function Form({ addItem }) {
 
     const handlerButton = () => {
         addItem(text)
-        inputEl.current.clear();
+        inputItem.current.clear();
     }
 
 
     return (
-        <View style={styles.wrapper}>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChange}
-                placeholder='Enter the task'
-                ref={inputEl}
-            />
+        <View style={styles.wrapp}>
+            <View>
+                <TextInput
+                    style={styles.textInput}
+                    onChangeText={onChange}
+                    placeholder='Enter the task11111111111'
+                    ref={inputItem}
+                />
+            </View>
             <View style={styles.button}>
                 <Button
                     title='ADD'
@@ -36,27 +38,26 @@ export default function Form({ addItem }) {
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        fontSize: 5,
+    wrapp: {
         alignItems: 'center',
-        marginHorizontal: '20%'
+        marginTop: 20,
+        // backgroundColor: '#CD853F',
     },
-    input: {
-        width: '100%',
-        color: '#FFFFFF',
-        borderBottomWidth: 1,
-        borderColor: '#FFFF00',
+    textInput: {
+        width: 230,
+        color: '#000000',
+        borderBottomColor: '#FFFF00',
+        borderWidth: 1,
         padding: 10,
-        marginVertical: 10,
-        alignItems: 'left'
+        marginBottom: 10,
     },
     button: {
-        width: '50%',
+        width: '30%',
         backgroundColor: '#2F4F4F',
         paddingHorizontal: 20,
         paddingVertical: 2,
         borderWidth: 1,
-        borderColor: '#FFFF00',
+        // borderColor: '#FFFF00',
         borderRadius: 10,
         marginBottom: 20
     }

@@ -9,7 +9,7 @@ export default function ListItem({ item, deleteItem }) {
             <TouchableOpacity onPress={() => deleteItem(item.key)}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/karzina.png')}
+                    source={require('../assets/deleteImage.png')}
                 />
             </TouchableOpacity>
         </View >
@@ -19,7 +19,6 @@ export default function ListItem({ item, deleteItem }) {
 const styles = StyleSheet.create({
     wrapper: {
         flexDirection: 'row',
-        backgroundColor: '#000000',
         borderColor: '#FFFF00',
         borderWidth: 1,
         borderRadius: 10,

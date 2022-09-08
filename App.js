@@ -8,9 +8,12 @@ import ListItem from './components/ListItem';
 export default function App() {
 
   const [listOfItems, setListOfItems] = useState([
-    { text: 'Купить продукты', key: '1' },
-    { text: 'Изучение React Native', key: '2' },
-    { text: 'Изучение Англ.языка', key: '3' }])
+    { text: 'JavaScript, TypeScript', key: '1' },
+    { text: 'React (React-hooks)', key: '2' },
+    { text: 'React Native', key: '3' },
+    { text: 'React Navigation', key: '4' },
+    { text: 'Redux/Redux ToolKit', key: '5' },
+  ])
 
   const addItem = (text) => {
     setListOfItems((list) => {
