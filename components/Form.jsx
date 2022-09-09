@@ -22,7 +22,7 @@ export default function Form({ addItem }) {
                 <TextInput
                     style={styles.textInput}
                     onChangeText={onChange}
-                    placeholder='Enter the task11111111111'
+                    placeholder='Enter the task'
                     ref={inputItem}
                 />
             </View>
@@ -41,11 +41,10 @@ const styles = StyleSheet.create({
     wrapp: {
         alignItems: 'center',
         marginTop: 20,
-        // backgroundColor: '#CD853F',
     },
     textInput: {
         width: 230,
-        color: '#000000',
+        color: '#FFFFFF',
         borderBottomColor: '#FFFF00',
         borderWidth: 1,
         padding: 10,

@@ -1,81 +1,87 @@
 import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 
-export default function ListItem({ item, deleteItem }) {
+export default function ListItem({ item, deleteItem, doneItem }) {
+
     return (
-        <View style={styles.wrapp}>
-
-            <View style={styles.changeImage}>
-                <Image
-                    style={styles.Image}
-                    source={require('../assets/deleteImage.png')}
-                />
+        <View style={styles.card}>
+            <View style={styles.cardChangeItem}>
+                <TouchableOpacity onPress={() => deleteItem(item.key)}>
+                    <Image
+                        style={styles.Image}
+                        source={require('../assets/deleteImage.png')}
+                    />
+                </TouchableOpacity>
             </View >
-
-            <View style={styles.text}>
-                <View style={styles.qwerty1}>
-                    <Text>
-                        {item.text}
-                    </Text>
-                </View>
-                <View style={styles.qwerty1}>
-                    <TouchableOpacity onPress={() => deleteItem(item.key)}>
-                        <Image
-                            style={styles.Image}
-                            source={require('../assets/deleteImage.png')}
-                        />
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.cardItem}>
+                <Text style={item.completed ? styles.cardItemText : styles.cardItemText2}>
+                    {item.text}
+                </Text>
+                <TouchableOpacity onPress={() => deleteItem(item.key)}>
+                    <Image
+                        style={styles.Image}
+                        source={require('../assets/deleteImage.png')}
+                    />
+                </TouchableOpacity>
             </View>
+            <View style={styles.cardDoneImage}>
+                <TouchableOpacity onPress={() => doneItem(item.key)}>
+                    <Image
+                        style={styles.Image}
+                        source={require('../assets/image.png')}
+                    />
+                </TouchableOpacity>
 
-            <View style={styles.doneImage}>
-                <Image
-                    style={styles.Image}
-                    source={require('../assets/deleteImage.png')}
-                />
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    wrapp: {
+    card: {
         flex: 1,
         flexDirection: 'row',
         backgroundColor: 'red',
-        // borderColor: '#FFFF00',
-        // borderWidth: 1,
-        // borderRadius: 10,
-        // padding: 10, 
         marginTop: 10,
-        height: 70,
-        // marginHorizontal: '20%'
+        height: 50,
+        backgroundColor: '#000000',
     },
-    changeImage: {
+    cardChangeItem: {
         flex: 1,
-        backgroundColor: 'green',
+        backgroundColor: '#000000',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    text: {
+    cardItem: {
         flex: 3,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        // color: 'white',
-        //paddingVertical: 5,
+        borderColor: '#FFFF00',
+        borderWidth: 1,
+        borderRadius: 10,
+        backgroundColor: '#000000',
+        paddingRight: 10
     },
-    doneImage: {
+    cardItemText: {
+        color: 'white',
+        paddingLeft: 10,
+        // crossedOut && {TextDecoderLine: 'line-through'}
+        // textDecorationLine: 'line-through'
+    },
+    cardItemText2: {
+        color: 'red',
+        paddingLeft: 10,
+        // crossedOut && {TextDecoderLine: 'line-through'}
+        // textDecorationLine: 'line-through'
+    },
+    cardDoneImage: {
         flex: 1,
-        backgroundColor: '#DCDCDC',
+        backgroundColor: '#000000',
         justifyContent: 'center',
         alignItems: 'center',
     },
     Image: {
-        // flex: 1,
-        width: 24,
-        height: 24,
-    },
-    1: {
-
+        width: 30,
+        height: 30,
     }
 });
