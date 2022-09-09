@@ -40,7 +40,7 @@ export default function Form({ addItem }) {
 const styles = StyleSheet.create({
     wrapp: {
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 20
     },
     textInput: {
         width: 230,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#FFFF00',
         borderWidth: 1,
         padding: 10,
-        marginBottom: 10,
+        marginBottom: 10
     },
     button: {
         width: '30%',
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 2,
         borderWidth: 1,
-        // borderColor: '#FFFF00',
         borderRadius: 10,
         marginBottom: 20
     }

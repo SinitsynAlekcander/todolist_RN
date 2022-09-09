@@ -1,24 +1,15 @@
 import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 
 export default function ListItem({ item, deleteItem, doneItem }) {
-
     return (
         <View style={styles.card}>
-            <View style={styles.cardChangeItem}>
-                <TouchableOpacity onPress={() => deleteItem(item.key)}>
-                    <Image
-                        style={styles.Image}
-                        source={require('../assets/deleteImage.png')}
-                    />
-                </TouchableOpacity>
-            </View >
             <View style={styles.cardItem}>
-                <Text style={item.completed ? styles.cardItemText : styles.cardItemText2}>
+                <Text style={item.completed ? styles.cardItemTrue : styles.cardItemFalse}>
                     {item.text}
                 </Text>
                 <TouchableOpacity onPress={() => deleteItem(item.key)}>
                     <Image
-                        style={styles.Image}
+                        style={styles.cardImage}
                         source={require('../assets/deleteImage.png')}
                     />
                 </TouchableOpacity>
@@ -26,11 +17,10 @@ export default function ListItem({ item, deleteItem, doneItem }) {
             <View style={styles.cardDoneImage}>
                 <TouchableOpacity onPress={() => doneItem(item.key)}>
                     <Image
-                        style={styles.Image}
-                        source={require('../assets/image.png')}
+                        style={styles.cardImage}
+                        source={require('../assets/doneImage.png')}
                     />
                 </TouchableOpacity>
-
             </View>
         </View>
     );
@@ -40,16 +30,8 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: 'red',
         marginTop: 10,
-        height: 50,
-        backgroundColor: '#000000',
-    },
-    cardChangeItem: {
-        flex: 1,
-        backgroundColor: '#000000',
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: 50
     },
     cardItem: {
         flex: 3,
@@ -59,29 +41,25 @@ const styles = StyleSheet.create({
         borderColor: '#FFFF00',
         borderWidth: 1,
         borderRadius: 10,
-        backgroundColor: '#000000',
-        paddingRight: 10
+        paddingRight: 10,
+        marginLeft: '20%'
     },
-    cardItemText: {
-        color: 'white',
-        paddingLeft: 10,
-        // crossedOut && {TextDecoderLine: 'line-through'}
-        // textDecorationLine: 'line-through'
+    cardItemTrue: {
+        color: '#FFFFFF',
+        paddingLeft: 10
     },
-    cardItemText2: {
-        color: 'red',
+    cardItemFalse: {
+        color: '#2F4F4F',
         paddingLeft: 10,
-        // crossedOut && {TextDecoderLine: 'line-through'}
-        // textDecorationLine: 'line-through'
+        textDecorationLine: 'line-through'
     },
     cardDoneImage: {
         flex: 1,
-        backgroundColor: '#000000',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
-    Image: {
+    cardImage: {
         width: 30,
-        height: 30,
+        height: 30
     }
 });
