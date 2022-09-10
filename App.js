@@ -65,6 +65,7 @@ export default function App() {
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#000000',
-    flex: 1
+    flex: 1,
+    // justifyContent: 'space-between'
   }
 });
