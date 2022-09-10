@@ -1,53 +1,59 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
-import Footer from './components/Footer';
-import Form from './components/Form';
-import Header from './components/Header';
-import ListItem from './components/ListItem';
+// import Footer from './components/Footer';
+// import Form from './components/Form';
+// import Header from './components/Header';
+// import ListItem from './components/ListItem';
+import Main from './components/Main';
+// import MainStack from './navigation';
+
+// import ProjectDescriptionStack from './navigation';
 
 export default function App() {
 
-  const [listOfItems, setListOfItems] = useState([
-    { text: 'JavaScript, TypeScript1', key: '1', completed: true },
-    { text: 'React (React-hooks)', key: '2', completed: true },
-    { text: 'React Native', key: '3', completed: true },
-    { text: 'React Navigation', key: '4', completed: true },
-    { text: 'Redux/Redux ToolKit', key: '5', completed: true },
-  ])
+  // const [listOfItems, setListOfItems] = useState([
+  //   { text: 'JavaScript, TypeScript1', key: '1', completed: true },
+  //   { text: 'React (React-hooks)', key: '2', completed: true },
+  //   { text: 'React Native', key: '3', completed: true },
+  //   { text: 'React Navigation', key: '4', completed: true },
+  //   { text: 'Redux/Redux ToolKit', key: '5', completed: true },
+  // ])
 
-  const addItem = (text) => {
-    setListOfItems((list) => {
-      return [
-        { text: text, key: Math.random().toString(36).substring(7), completed: true },
-        ...list
-      ]
-    });
-  };
+  // const addItem = (text) => {
+  //   setListOfItems((list) => {
+  //     return [
+  //       { text: text, key: Math.random().toString(36).substring(7), completed: true },
+  //       ...list
+  //     ]
+  //   });
+  // };
 
-  const deleteItem = (key) => {
-    setListOfItems((list) => {
-      return list.filter(listOfItems => listOfItems.key != key)
-    });
-  };
+  // const deleteItem = (key) => {
+  //   setListOfItems((list) => {
+  //     return list.filter(listOfItems => listOfItems.key != key)
+  //   });
+  // };
 
-  const doneItem = (key) => {
-    setListOfItems((list) => {
-      return list.map((item) => {
-        if (item.key === key) {
-          return {
-            ...item,
-            completed: !item.completed
-          }
-        }
-        return item
-      })
-    });
-  }
+  // const doneItem = (key) => {
+  //   setListOfItems((list) => {
+  //     return list.map((item) => {
+  //       if (item.key === key) {
+  //         return {
+  //           ...item,
+  //           completed: !item.completed
+  //         }
+  //       }
+  //       return item
+  //     })
+  //   });
+  // }
 
   return (
     <View style={styles.wrapper}>
-      <Header />
+      <Main/>
+      {/* <Header /> */}
+      {/* <ProjectDescriptionStack/>
       <Form addItem={addItem} />
       <View>
         <FlatList
@@ -57,7 +63,7 @@ export default function App() {
           )}
         />
       </View>
-<Footer/>
+      <Footer /> */}
     </View>
   );
 }
