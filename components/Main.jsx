@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { FlatList, StyleSheet, View, Text } from 'react-native';
+
+import { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, View, Text, StatusBar, Pressable, SafeAreaView, ActivityIndicator, RefreshControl } from 'react-native';
 import Footer from './Footer';
 import Form from './Form';
 import Header from './Header';
 import ListItem from './ListItem';
+import axios from "axios";
+export default function Main({navigation}) {
+    const [isLoading, setIsLoading] = useState(true);
 
-export default function Main() {
+    const [listOfItems, setListOfItems] = useState()
 
-    const [listOfItems, setListOfItems] = useState([
-        { text: 'JavaScript, TypeScript1', key: '1', completed: true },
-        { text: 'React (React-hooks)', key: '2', completed: true },
-        { text: 'React Native', key: '3', completed: true },
-        { text: 'React Navigation', key: '4', completed: true },
-        { text: 'Redux/Redux ToolKit', key: '5', completed: true },
-    ])
+    const fetchToDo = () => {
+        setIsLoading(true);
+        axios
+          .get("https://631daaae789612cd07ae4c96.mockapi.io/todo")
+          .then(({ data }) => {
+            setListOfItems(data);
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("Ошибка");
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      };
+
+    useEffect(fetchToDo, [])
 
     const addItem = (text) => {
         setListOfItems((list) => {
@@ -45,20 +58,52 @@ export default function Main() {
         });
     }
 
+    
+
+    if(isLoading) {
+        return (
+            <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center'}}>
+                <ActivityIndicator size="large" />
+            </View>
+        )
+    }
+    
     return (
+        <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
         <View style={styles.wrapper}>
+            <StatusBar barStyle="light-content"/>
             <Header />
             <Form addItem={addItem} />
             <View>
                 <FlatList
                     data={listOfItems}
+                    refreshControl={
+                        <RefreshControl
+                        onRefresh={fetchToDo}
+                          refreshing={isLoading}
+                          colors="#ffffff"
+                          tintColor="#ffffff"
+                        />}
                     renderItem={({ item }) => (
                         <ListItem item={item} doneItem={doneItem} deleteItem={deleteItem} />
                     )}
                 />
             </View>
+
+            <Pressable onPress={() => {
+                navigation.navigate("ProjectDescription")
+            }}><Text style={{color: 'white'}}>link</Text>
+            </Pressable>
+
+
             {/* <Footer /> */}
+
+            <View style={styles.footer}>
+                <Text>1232313</Text>
+                <Text>1232313</Text>
+            </View>
         </View>
+        </SafeAreaView>
     );
 }
 
@@ -67,5 +112,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         flex: 1,
         // justifyContent: 'space-between'
+    },
+    footer: {
+        backgroundColor: 'tomato',
+        position: 'absolute',
+        bottom: 20,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        height: 100
     }
 });
