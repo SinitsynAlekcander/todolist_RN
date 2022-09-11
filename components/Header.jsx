@@ -3,8 +3,8 @@ import { StyleSheet, View, Text } from 'react-native';
 export default function Header() {
     return (
         <View style={styles.header}>
-            <Text style={styles.text}>
-                To do list
+            <Text style={styles.headerText}>
+                TO DO LIST
             </Text>
         </View>
     );
@@ -12,11 +12,9 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#2F4F4F',
-        //height: 100,
-        //paddingTop: 60
+        backgroundColor: '#000000'
     },
-    text: {
+    headerText: {
         color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
