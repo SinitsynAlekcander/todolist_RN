@@ -15,16 +15,12 @@ export default function Main({ navigation }) {
         setIsLoading(true);
         axios
             .get("https://631daaae789612cd07ae4c96.mockapi.io/todo")
-            .then(({ data }) => {
-                setListOfItems(data);
-            })
+            .then(({ data }) => setListOfItems(data))
             .catch((err) => {
-                console.log(err);
+                console.log('ERROR');
                 alert("Ошибка");
             })
-            .finally(() => {
-                setIsLoading(false);
-            });
+            .finally(() => setIsLoading(false))
     };
 
     useEffect(fetchToDo, [])
@@ -94,27 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000'
     },
     wrapper: {
-        backgroundColor: '#000000',
-        flex: 1
-    },
-    footer: {
-        // flex: 1,
-        backgroundColor: 'tomato',
-        // position: 'absolute',
-        // width: '100%',
-        // alignItems: 'stretch',
-        flexDirection: 'row',
-        // direction: 'rtl',
-        justifyContent: 'space-between',
-        paddingHorizontal: 20,
-        // alignItems: 'stretch',
-        // alignSelf: 'stretch',
-        // alignContent: 'space-between'
-        // height: 100
-    },
-    footerText: {
-        color: '#FFFFFF',
-        fontSize: 15,
-        fontWeight: 'bold',
+        flex: 1,
+        backgroundColor: '#000000'
     }
 });

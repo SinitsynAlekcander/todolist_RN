@@ -4,23 +4,31 @@ export default function Footer({ navigation }) {
     return (
         <View style={styles.footer}>
             <Pressable onPress={() => navigation.navigate("ProjectDescription")}>
-                <Text style={styles.footerText}>111</Text>
+                <Text style={styles.footerNavigationText}>ProjectDescription</Text>
             </Pressable>
-            <Text style={styles.footerText}>222</Text>
+            <Text style={styles.footerText}>2022</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     footer: {
-        backgroundColor: 'tomato',
+        backgroundColor: '#000000',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 20,
+        borderTopColor: '#FFFF00',
+        borderWidth: 1,
+        paddingVertical: 20,
+        paddingHorizontal: 20
+    },
+    footerNavigationText: {
+        color: '#FFFF00',
+        fontSize: 15,
+        fontWeight: 'bold'
     },
     footerText: {
         color: '#FFFFFF',
         fontSize: 15,
-        fontWeight: 'bold',
-    }
+        fontWeight: 'bold'
+    },
 });

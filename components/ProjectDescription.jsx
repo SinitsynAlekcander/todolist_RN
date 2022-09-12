@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#000000',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     cardBackText: {
-        color: '#FFFFFF',
+        color: '#FFFF00',
         fontSize: 20,
         fontWeight: 'bold',
         paddingBottom: 20
