@@ -6,9 +6,7 @@ export default function Form({ addItem }) {
     const [text, setValue] = useState('');
     const inputItem = useRef(null);
 
-    const onChange = (text) => {
-        setValue(text);
-    };
+    const onChange = (text) => setValue(text);
 
     const handlerButton = () => {
         addItem(text)

@@ -1,29 +1,26 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 
-export default function Footer() {
+export default function Footer({ navigation }) {
     return (
         <View style={styles.footer}>
-            <Text style={styles.text}>'&copy'</Text>
-            <Text style={styles.text}>Information</Text>
-            <Text style={styles.text}>Information</Text>
-            <Text style={styles.text}>Information</Text>
-            <Text style={styles.text}>Синицын Александр</Text>
-            <Text style={styles.text}>Итоговое задание на стажировку LAD</Text>
+            <Pressable onPress={() => navigation.navigate("ProjectDescription")}>
+                <Text style={styles.footerText}>111</Text>
+            </Pressable>
+            <Text style={styles.footerText}>222</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     footer: {
-        justifyContent: 'space-evenly',
-        backgroundColor: '#2F4F4F',
-        height: 100,
-        paddingLeft: '00%',
-        alignItems: 'stretch'
-        // justifyContent: 'space-between',
+        backgroundColor: 'tomato',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
     },
-    text: {
+    footerText: {
         color: '#FFFFFF',
-        fontSize: 15
+        fontSize: 15,
+        fontWeight: 'bold',
     }
 });

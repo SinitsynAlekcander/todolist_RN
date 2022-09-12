@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View, Text, StatusBar, Pressable, SafeAreaView, ActivityIndicator, RefreshControl } from 'react-native';
 import Footer from './Footer';
@@ -68,48 +67,32 @@ export default function Main({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
+        <SafeAreaView style={styles.safeAreaView}>
             <View style={styles.wrapper}>
                 <StatusBar barStyle="light-content" />
                 <Header />
                 <Form addItem={addItem} />
                 <FlatList
                     data={listOfItems}
-                    // refreshControl={
-                    //     <RefreshControl
-                    //         onRefresh={fetchToDo}
-                    //         refreshing={isLoading}
-                    //         colors="#ffffff"
-                    //         tintColor="#ffffff"
-                    //     />}
                     renderItem={({ item }) => (
                         <ListItem
                             item={item}
                             doneItem={doneItem}
-                            deleteItem={deleteItem} />
+                            deleteItem={deleteItem}
+                        />
                     )}
                 />
-
-                <View style={styles.footer}>
-                    <Pressable onPress={() => {
-                        navigation.navigate("ProjectDescription")
-                    }}>
-                        <Text style={styles.footerText}>
-                            Project Description
-                        </Text>
-                    </Pressable>
-
-
-                    <Text>1232313</Text>
-                    <Text>1232313</Text>
-                </View>
-
+                <Footer navigation={navigation} />
             </View>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
+    safeAreaView: {
+        flex: 1,
+        backgroundColor: '#000000'
+    },
     wrapper: {
         backgroundColor: '#000000',
         flex: 1
@@ -119,13 +102,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'tomato',
         // position: 'absolute',
         // width: '100%',
-        alignItems: 'stretch',
-        // flexDirection: 'row',
-        // justifyContent: 'space-between',
+        // alignItems: 'stretch',
+        flexDirection: 'row',
+        // direction: 'rtl',
+        justifyContent: 'space-between',
         paddingHorizontal: 20,
-        alignItems: 'stretch',
-        alignSelf: 'stretch',
-        alignContent: 'space-between'
+        // alignItems: 'stretch',
+        // alignSelf: 'stretch',
+        // alignContent: 'space-between'
         // height: 100
     },
     footerText: {

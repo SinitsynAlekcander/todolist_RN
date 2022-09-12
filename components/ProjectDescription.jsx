@@ -1,23 +1,15 @@
-import React from "react";
 import { StyleSheet, View, Text, Pressable, Image } from 'react-native';
 
 export default function ProjectDescription({ navigation }) {
     return (
         <View style={styles.card}>
-            <Pressable onPress={() => {
-                navigation.goBack()
-            }}>
-                <Text style={{ color: 'white' }}>
-                    back
-                </Text>
+            <Pressable onPress={() => navigation.goBack()}>
+                <Text style={styles.cardBackText}>Back</Text>
             </Pressable>
             <Image
                 style={styles.cardImage}
                 source={require('../assets/projectDescription.png')}
             />
-            <Text style={styles.cardText}>
-                Hello
-            </Text>
         </View>
     );
 }
@@ -29,13 +21,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    cardText: {
+    cardBackText: {
         color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
-        marginTop: 10,
-        textTransform: 'capitalize',
-        textAlign: 'left',
+        paddingBottom: 20
     },
     cardImage: {
         width: 350,
