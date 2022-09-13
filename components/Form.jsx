@@ -17,6 +17,7 @@ export default function Form({ addItem }) {
                     style={styles.textInput}
                     onChangeText={onChange}
                     placeholder='Enter the task'
+                    placeholderTextColor={'#D3D3D3'}
                     ref={inputItem}
                 />
             </View>

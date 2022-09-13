@@ -6,7 +6,7 @@ export default function Footer({ navigation }) {
             <Pressable onPress={() => navigation.navigate("ProjectDescription")}>
                 <Text style={styles.footerNavigationText}>ProjectDescription</Text>
             </Pressable>
-            <Text style={styles.footerText}>2022</Text>
+            <Text style={styles.footerText}> &copy; 2022</Text>
         </View>
     );
 }

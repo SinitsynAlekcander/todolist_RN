@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, View, Text, StatusBar, Pressable, SafeAreaView, ActivityIndicator, RefreshControl } from 'react-native';
+import { FlatList, StyleSheet, View, StatusBar, SafeAreaView, ActivityIndicator } from 'react-native';
 import Footer from './Footer';
 import Form from './Form';
 import Header from './Header';
@@ -25,6 +25,14 @@ export default function Main({ navigation }) {
 
     useEffect(fetchToDo, [])
 
+    if (isLoading) {
+        return (
+            <View style={styles.isLoading}>
+                <ActivityIndicator size="large" />
+            </View>
+        )
+    }
+
     const addItem = (text) => {
         setListOfItems((list) => {
             return [
@@ -32,13 +40,13 @@ export default function Main({ navigation }) {
                 ...list
             ]
         });
-    };
+    }
 
     const deleteItem = (key) => {
         setListOfItems((list) => {
             return list.filter(listOfItems => listOfItems.key != key)
         });
-    };
+    }
 
     const doneItem = (key) => {
         setListOfItems((list) => {
@@ -52,14 +60,6 @@ export default function Main({ navigation }) {
                 return item
             })
         });
-    }
-
-    if (isLoading) {
-        return (
-            <View style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
-                <ActivityIndicator size="large" />
-            </View>
-        )
     }
 
     return (
@@ -92,5 +92,11 @@ const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         backgroundColor: '#000000'
+    },
+    isLoading: {
+        flex: 1,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
